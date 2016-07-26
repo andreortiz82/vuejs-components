@@ -27,7 +27,7 @@ export default {
 
 body {
   font-family: Helvetica, sans-serif;
-  color: $blue;
+  color: $black;
   @extend .bg-black;
   padding:rem(20);
 }
@@ -41,6 +41,13 @@ body {
     border:rem(5) solid $light;
     padding:rem(20);
     @extend .bg-white;
+
+    h1:before {
+      @include fa-icon();
+      content:$fa-var-check;
+      margin-right:rem(10);
+      color:$green;
+    }
   }
 }
 </style>
