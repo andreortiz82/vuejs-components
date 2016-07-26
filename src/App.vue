@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <alphabet-navigation></alphabet-navigation>
     <div class="outer-container">
       <div class="container">
         <h1>{{ msg }}</h1>
@@ -9,14 +10,13 @@
 </template>
 
 <script>
+import AlphabetNavigation from './components/alphabet-navigation.vue'
+
 export default {
+  components: { AlphabetNavigation },
   data () {
     return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'Hello Sucka!'
+      msg: 'Hello Vue!'
     }
   }
 }
@@ -28,7 +28,7 @@ export default {
 body {
   font-family: Helvetica, sans-serif;
   color: $black;
-  @extend .bg-black;
+  @extend .bg-ccc;
   padding:rem(20);
 }
 
