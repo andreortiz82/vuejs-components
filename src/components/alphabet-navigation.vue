@@ -102,5 +102,4 @@ $navigation-bg-color:$blue;
     }
   }
 }
-
 </style>
