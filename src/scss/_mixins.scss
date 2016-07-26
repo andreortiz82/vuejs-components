@@ -1,0 +1,13 @@
+@mixin shadow($size:"small") {
+  @if $size == "small" {
+    $value:0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow:$value;
+    -webkit-box-shadow:$value;
+    -moz-box-shadow:$value;
+  } @else {
+    $value:0 8px 17px 0 rgba(0, 0, 0, 0.2);
+    box-shadow:$value;
+    -webkit-box-shadow:$value;
+    -moz-box-shadow:$value;
+  }
+}
