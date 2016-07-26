@@ -11,3 +11,10 @@
     -moz-box-shadow:$value;
   }
 }
+
+@mixin border-radius($rad:$radius) {
+  @include border-top-radius($rad);
+  @include border-right-radius($rad);
+  @include border-bottom-radius($rad);
+  @include border-left-radius($rad);
+}

@@ -1,11 +1,12 @@
 <template>
   <div class="list-item">
     <h3>{{ title }}</h3>
+    <p>{{ body }}</p>
   </div>
 </template>
 <script>
 export default {
-  props: ['title'],
+  props: ['title', 'body'],
   data () {
     return {
 
