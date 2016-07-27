@@ -5,11 +5,22 @@
       <div class="container">
         <div class="panel">
         <h1>{{ msg }}</h1>
-        <button type="button" v-on:click="getItems"> Get Data </button>
         </div>
         <div id="list-container">
-          <h2>List Items ({{items.length}})</h2>
-          <search-filter :model.sync="filter"></search-filter>
+
+          <header class="list-header">
+            <div class="title">
+              <h2>List Items ({{items.length}})</h2>
+            </div>
+            <div class="action">
+              <button type="button" v-on:click="getItems"> Get Data </button>
+            </div>
+          </header>
+
+          <div class="filter-container">
+            <search-filter :model.sync="filter"></search-filter>
+          </div>
+
           <list-item v-for="item in items | filterBy filter" :title="item.title" :body="item.body"></list-item>
         </div>
       </div>
@@ -72,6 +83,29 @@ button {
 
   .container {
     @include span-columns(12);
+
+    #list-container {
+      @include shadow;
+      border:rem(5) solid $light;
+      padding:rem(20);
+      @extend .bg-white;
+      margin-bottom:rem(20);
+
+      .filter-container {
+        margin:rem(20) 0;
+      }
+
+      .list-header {
+        @include outer-container;
+        .title, .action {
+          @include span-columns(6);
+        }
+        .action { text-align:right }
+        .title h2 {
+          margin:0 0 0 0;
+        }
+      }
+    }
 
     .panel {
       @include shadow;

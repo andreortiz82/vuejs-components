@@ -18,7 +18,6 @@ export default {
   @import "src/scss/asset-bundle";
 
   #search-filter {
-    margin-bottom:rem(20);
 
     i:before {
       @include fa-icon();
