@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <application-header :navigation-menu="headerNavigationMenu"></application-header>
     <alphabet-navigation></alphabet-navigation>
     <div class="outer-container">
       <div class="container">
@@ -26,19 +27,31 @@
       </div>
     </div>
   </div>
+  <pre><code>{{$data | json}}</code></pre>
 </template>
 
 <script>
+import ApplicationHeader from './components/application-header.vue'
 import AlphabetNavigation from './components/alphabet-navigation.vue'
 import SearchFilter from './components/search-filter.vue'
 import ListItem from './components/list-item.vue'
 
 export default {
-  components: { AlphabetNavigation, SearchFilter, ListItem },
+  components: { 
+    AlphabetNavigation, 
+    SearchFilter, 
+    ListItem, 
+    ApplicationHeader },
   data () {
     return {
       msg: 'Hello VueJS!',
-      items: []
+      items: [],
+      headerNavigationMenu:[
+          { icon:'envelope', label:'', path:'#/test0', badge:true, badgeColor:'red', badgeLabel:'5'},
+          { label:'Users', path:'#/test1', badge:true, badgeColor:'red', badgeIcon:'exclamation-circle' },
+          { label:'Reports', path:'#/test2', badge:false, subNavigation:[{ label:'A', path:'#/a'}, { label:'B', path:'#/b' }, { label:'C', path:'#/c' }] },
+          { icon:'cog', path:'#/test3', badge:false }
+        ]
     }
   },
   methods:{
@@ -65,7 +78,6 @@ body {
   font-family: Helvetica, sans-serif;
   color: $black;
   @extend .bg-light;
-  padding:rem(20);
 }
 
 button {

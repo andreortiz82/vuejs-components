@@ -18,3 +18,23 @@
   @include border-bottom-radius($rad);
   @include border-left-radius($rad);
 }
+
+@mixin flex-container($direction:row, $wrap:wrap, $justify:flex-start, $align:flex-start) {
+  display: flex;
+  /* or inline-flex */
+  flex-direction: $direction;
+  /* row | row-reverse | column | column-reverse */
+  flex-wrap: $wrap;
+  /* nowrap | wrap | wrap-reverse; */
+  justify-content: $justify;
+  /*flex-start | flex-end | center*/
+  align-items: $align;
+  /* flex-start | flex-end | center | baseline | stretch; */
+}
+
+@mixin flex-item($grow:1, $align:auto){
+  flex-grow: $grow;
+  flex-basis:auto;
+  align-self: $align;
+  /* auto | flex-start | flex-end | center | baseline | stretch; */
+}
